@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="100%" height="100%" fill="#f5f5f5" />
+  <g fill="#e0e0e0">
+    <rect x="40" y="40" width="80" height="80" rx="8" />
+    <rect x="140" y="40" width="220" height="80" rx="8" />
+  </g>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#bdbdbd" font-family="Arial, Helvetica, sans-serif" font-size="20">Image unavailable</text>
+</svg>
