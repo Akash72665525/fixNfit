@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 // Determine API base URL:
-// - honor REACT_APP_API_URL when provided
-// - otherwise, if served from a non-localhost host (LAN), use that host with backend port 5000
-// - fallback to localhost for development on the same machine
-// const inferredBase = process.env.REACT_APP_API_URL || `${window.location.protocol}//${window.location.hostname}:5000/api`;
+// - In production (Vercel), REACT_APP_API_URL must be set to the Render backend URL
+// - In development, falls back to localhost:5000
+const inferredBase = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 const api = axios.create({
   baseURL: inferredBase,
   headers: {
