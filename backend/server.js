@@ -33,11 +33,17 @@ const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(',').map(o => o.trim())
   : ['http://localhost:3000'];
 
+// Regex patterns for dynamic preview URLs (e.g. Vercel preview deployments)
+const allowedPatterns = [
+  /^https:\/\/fix-nfit[a-z0-9-]*\.vercel\.app$/
+];
+
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (mobile apps, curl, Postman)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);
+    if (allowedPatterns.some(pattern => pattern.test(origin))) return callback(null, true);
     callback(new Error(`CORS: origin ${origin} not allowed`));
   },
   credentials: true
